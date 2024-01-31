@@ -1,30 +1,29 @@
-// Node server with express
+const express = require('express');
+const cors = require('cors');
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+const roomBookingsRoute = require('./routes/roomBookings');
 
-const express = require ('express')
-const cors = require ('cors')
-const mongoose = require('mongoose')
-const bodyParser = require('body-parser')
+const app = express();
+app.use(bodyParser.json());
 
-const app = (express)
-app.use(bodyParser.json())
+/* 
+This is how we connect to the database. this is commented out for now, until we have one set up
 
-/* connect to database
-mongoose.connect('')
-const db = mongoose.connection
-
-db.on('error', console.error.bind(console, 'MongoDB connection error:'));
-db.once('open', () => {
-  console.log('Connected to MongoDB');
+mongoose.connect('', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
 });
-
 */
 
+app.use(express.json());
+app.use(cors());
 
+// routes
+app.use('/api/room-bookings', roomBookingsRoute);
 
-// port 8080
-app.use(express.json())
-app.use(cors())
-const PORT = 8080
+// ports
+const PORT = 8080;
 app.listen(PORT, () => {
-    console.log('Server is unning on PORT ${PORT}')
-})
+  console.log(`Server is running on PORT ${PORT}`);
+});
