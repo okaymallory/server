@@ -5,7 +5,15 @@ const bodyParser = require('body-parser');
 const roomBookingsRoute = require('./routes/roomBookings');
 
 const app = express();
+
+/*
+This line may not be needed, as the body-parser middleware is
+apparently bundled with Express starting from version 4.16.0.
+Will keep it here for now just in case we need it :)
+
 app.use(bodyParser.json());
+*/
+
 
 /* 
 This is how we connect to the database. this is commented out for now, until we have one set up

@@ -6,6 +6,7 @@ const roomBookingSchema = new mongoose.Schema({
   checkOutDate: Date,
 });
 
+// roomBookingSchema can be replaced with whatever the schema is actually named when created
 const RoomBooking = mongoose.model('RoomBooking', roomBookingSchema);
 
 module.exports = RoomBooking;
