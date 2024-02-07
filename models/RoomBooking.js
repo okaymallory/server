@@ -1,3 +1,7 @@
+/*
+models represent data structures and validation rules
+*/
+
 const mongoose = require('mongoose');
 
 const roomBookingSchema = new mongoose.Schema({

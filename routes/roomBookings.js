@@ -1,3 +1,8 @@
+/*
+routes define the endpoint or URLS that clients use to
+interact with the server
+*/
+
 const express = require('express');
 const router = express.Router();
 const RoomBooking = require('../models/RoomBooking');
